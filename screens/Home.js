@@ -10,10 +10,10 @@ import RestaurantItems, {
 import SearchBar from "../components/home/SearchBar";
 
 const YELP_API_KEY =
-  "bdRJutLhFAQJ36t7b89CWjHFBU4OKzjt9wvZzcY-nkgmvTqlNMjZWV1eG7iBQ9R74SyfxRg9LWnBAkZY06BtAZAe4d2dfX-2vuX8a1l5V7foctHfX9UKEyoM5ts3YXYx";
+  "LK9nJotDn5vcO4wzZrldrSHoZZkiavgwHMrTT2IyFDu8MjFwTOYt7c6OrnobMymgCwtRfMkVRAdk6AFqeN0A_RktPP41Ok66An2Wklgss2J1tb__vYaJ1Tv27LmvY3Yx";
 
 export default function Home({ navigation }) {
-  const [restaurantData, setRestaurantData] = useState(localRestaurants);
+  const [restaurantData, setRestaurantData] = useState([]);
   const [city, setCity] = useState("San Francisco");
   const [activeTab, setActiveTab] = useState("Delivery");
 
@@ -22,18 +22,14 @@ export default function Home({ navigation }) {
 
     const apiOptions = {
       headers: {
-        Authorization: `Bearer ${YELP_API_KEY}`,
+        Authorization: `Bearer LK9nJotDn5vcO4wzZrldrSHoZZkiavgwHMrTT2IyFDu8MjFwTOYt7c6OrnobMymgCwtRfMkVRAdk6AFqeN0A_RktPP41Ok66An2Wklgss2J1tb__vYaJ1Tv27LmvY3Yx`,
       },
     };
 
     return fetch(yelpUrl, apiOptions)
       .then((res) => res.json())
       .then((json) =>
-        setRestaurantData(
-          json.businesses.filter((business) =>
-            business.transactions.includes(activeTab.toLowerCase())
-          )
-        )
+      setRestaurantData(json.businesses)
       );
   };
 

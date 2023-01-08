@@ -1,14 +1,25 @@
 import firebase from "firebase";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCsgb5Ri0DRK9gE0nJ0PYCh9BLByhbJatE",
-  authDomain: "rn-uber-eats-clone-yt.firebaseapp.com",
-  projectId: "rn-uber-eats-clone-yt",
-  storageBucket: "rn-uber-eats-clone-yt.appspot.com",
-  messagingSenderId: "791658363133",
-  appId: "1:791658363133:web:91e4fe1be6f3f23467a694",
+  apiKey: "AIzaSyA1FjrA9b_PTm6JDgV7ri-UGf6ly2oMNo0",
+  authDomain: "uber-eats-f238b.firebaseapp.com",
+  projectId: "uber-eats-f238b",
+  storageBucket: "uber-eats-f238b.appspot.com",
+  messagingSenderId: "1080884426584",
+  appId: "1:1080884426584:web:ac3b7ff1163bd16363572d"
 };
 
 !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
 
 export default firebase;
+
+
+// // Your web app's Firebase configuration
+// const firebaseConfig = {
+//   apiKey: "AIzaSyA1FjrA9b_PTm6JDgV7ri-UGf6ly2oMNo0",
+//   authDomain: "uber-eats-f238b.firebaseapp.com",
+//   projectId: "uber-eats-f238b",
+//   storageBucket: "uber-eats-f238b.appspot.com",
+//   messagingSenderId: "1080884426584",
+//   appId: "1:1080884426584:web:ac3b7ff1163bd16363572d"
+// };

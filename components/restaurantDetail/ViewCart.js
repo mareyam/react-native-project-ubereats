@@ -22,7 +22,7 @@ export default function ViewCart({ navigation }) {
     currency: "USD",
   });
 
-  const addOrderToFireBase = () => {
+  const addOrderToFireBase = () => { 
     setLoading(true);
     const db = firebase.firestore();
     db.collection("orders")
@@ -100,7 +100,7 @@ export default function ViewCart({ navigation }) {
                 }}
                 onPress={() => {
                   addOrderToFireBase();
-                  setModalVisible(false);
+                  // setModalVisible(true);
                 }}
               >
                 <Text style={{ color: "white", fontSize: 20 }}>Checkout</Text>
@@ -129,8 +129,7 @@ export default function ViewCart({ navigation }) {
         animationType="slide"
         visible={modalVisible}
         transparent={true}
-        onRequestClose={() => setModalVisible(false)}
-      >
+        onRequestClose={() => setModalVisible(false)}>
         {checkoutModalContent()}
       </Modal>
       {total ? (

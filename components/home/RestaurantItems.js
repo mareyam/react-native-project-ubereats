@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Text, Image, TouchableOpacity , FlatList} from "react-native";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 export const localRestaurants = [
@@ -35,32 +35,30 @@ export const localRestaurants = [
 export default function RestaurantItems({ navigation, ...props }) {
   return (
     <>
-      {props.restaurantData.map((restaurant, index) => (
-        <TouchableOpacity
-          key={index}
-          activeOpacity={1}
-          style={{ marginBottom: 30 }}
-          onPress={() =>
-            navigation.navigate("RestaurantDetail", {
-              name: restaurant.name,
-              image: restaurant.image_url,
-              price: restaurant.price,
-              reviews: restaurant.review_count,
-              rating: restaurant.rating,
-              categories: restaurant.categories,
-            })
-          }
-        >
-          <View
-            style={{ marginTop: 10, padding: 15, backgroundColor: "white" }}
-          >
-            <RestaurantImage image={restaurant.image_url} />
-            <RestaurantInfo name={restaurant.name} rating={restaurant.rating} />
-          </View>
-        </TouchableOpacity>
-      ))}
+    <FlatList data={localRestaurants}
+        renderItem={({ item, index }) => {
+          return (
+          <TouchableOpacity key={index} activeOpacity={1} style={{marginBotton:30}} 
+            onPress={() => navigation.navigate("RestaurantDetail",
+            {
+              name: localRestaurants.name,
+              image: localRestaurants.image_url,
+              price: localRestaurants.price,
+              reviews: localRestaurants.review_count,
+              rating: localRestaurants.rating,
+              categories: localRestaurants.categories,
+            })}>
+            <View style={{ marginTop: 10, padding: 15, backgroundColor: "white" }} >
+              <Image style={{width: "100%",height: 100,}}source={{ uri: `${item.image_url}` }}/>
+              <RestaurantInfo name={item.name} rating={item.rating} />
+              <Text>Review Count: {item.review_count}</Text>
+            </View>
+          </TouchableOpacity>
+          )
+        }}
+      />
     </>
-  );
+      );
 }
 
 const RestaurantImage = (props) => (
