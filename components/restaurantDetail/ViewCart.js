@@ -23,12 +23,12 @@ export default function ViewCart({ navigation }) {
   });
 
   const addOrderToFireBase = () => { 
-    setLoading(true);
+    // setLoading(true);
     const db = firebase.firestore();
     db.collection("orders")
       .add({
         items: items,
-        restaurantName: restaurantName,
+         restaurantName: restaurantName,
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       })
       .then(() => {
@@ -100,7 +100,7 @@ export default function ViewCart({ navigation }) {
                 }}
                 onPress={() => {
                   addOrderToFireBase();
-                  // setModalVisible(true);
+                  setModalVisible(true);
                 }}
               >
                 <Text style={{ color: "white", fontSize: 20 }}>Checkout</Text>
