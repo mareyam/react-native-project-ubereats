@@ -9,6 +9,7 @@ const firebaseConfig = {
   appId: "1:1080884426584:web:ac3b7ff1163bd16363572d"
 };
 
+//if no firebaseapp exists then add a new one
 !firebase.apps.length ? firebase.initializeApp(firebaseConfig) : firebase.app();
 
 export default firebase;

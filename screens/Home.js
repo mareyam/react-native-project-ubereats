@@ -14,7 +14,7 @@ export default function Home({ navigation }) {
 
   const [restaurantData, setRestaurantData] = useState([]);
   const [activeTab, setActiveTab] = useState("Delivery");
-  const [city, setCity] = useState("newyork");
+  const [city, setCity] = useState("Manchester");
 
   const getRestaurantsFromYelp = async () => {
     const yelpUrl = `https://api.yelp.com/v3/businesses/search?term=restaurants&location=${city}`;

@@ -15,7 +15,10 @@ export default function BottomTabs() {
       <Icon icon="home" text="Home" />
       <Icon icon="search" text="Browse" />
       <Icon icon="shopping-bag" text="Grocery" />
-      <Icon icon="receipt" text="Orders" />
+      {/* <TouchableOpacity> */}
+         <Icon icon="receipt" text="Orders"/>
+         {/* onPress={() => navigation.navigate("OrderCompleted")} */}
+      {/* </TouchableOpacity> */}
       <Icon icon="user" text="Account" />
     </View>
   );

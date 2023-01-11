@@ -1,9 +1,13 @@
+//centralized store for the state of the whole application
+//global state
+//dyanmic
+
 let defaultState = {
   selectedItems: { items: [], restaurantName: "" },
 };
 
 let cartReducer = (state = defaultState, action) => {
-  switch (action.type) {
+  switch (action.type) { //action based on type
     case "ADD_TO_CART": {
       let newState = { ...state };
 
@@ -25,7 +29,7 @@ let cartReducer = (state = defaultState, action) => {
           restaurantName: action.payload.restaurantName,
         };
       }
-      console.log(newState, "👉");
+      console.log(newState, "-> ");
       return newState;
     }
 

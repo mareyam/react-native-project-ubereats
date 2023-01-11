@@ -24,10 +24,10 @@ export default function MenuItems({
   hideCheckbox,
   marginLeft,
 }) {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch();//send obj to store
 
   const selectItem = (item, checkboxValue) =>
-    dispatch({
+    dispatch({ //send name and seleced item to store
       type: "ADD_TO_CART",
       payload: {
         ...item,
@@ -59,7 +59,7 @@ export default function MenuItems({
               />
             )}
             <FoodInfo food={food} />
-            <FoodImage food={food} marginLeft={marginLeft ? marginLeft : 0} />
+            <FoodImage food={food}/>
           </View>
           <Divider
             width={0.5}
@@ -73,7 +73,7 @@ export default function MenuItems({
 }
 
 const FoodInfo = (props) => (
-  <View style={{ width: 240, justifyContent: "space-evenly" }}>
+  <View style={{ width: 240, justifyContent: "space-evenly"}}>
     <Text style={styles.titleStyle}>{props.food.title}</Text>
     <Text>{props.food.description}</Text>
     <Text>{props.food.price}</Text>
@@ -88,8 +88,7 @@ const FoodImage = ({ marginLeft, ...props }) => (
         width: 100,
         height: 100,
         borderRadius: 8,
-        marginLeft: marginLeft,
-      }}
-    />
+        marginLeft: -50,
+      }}/>
   </View>
 );

@@ -35,7 +35,7 @@ export default function ViewCart({ navigation }) {
         setTimeout(() => {
           setLoading(false);
           navigation.navigate("OrderCompleted");
-        }, 2500);
+        }, 1000);
       });
   };
 
@@ -79,7 +79,7 @@ export default function ViewCart({ navigation }) {
       <>
         <View style={styles.modalContainer}>
           <View style={styles.modalCheckoutContainer}>
-            <Text style={styles.restaurantName}>{restaurantName}</Text>
+            <TouchableOpacity><Text style={styles.restaurantName}>{restaurantName}</Text></TouchableOpacity>
             {items.map((item, index) => (
               <OrderItem key={index} item={item} />
             ))}
@@ -139,7 +139,7 @@ export default function ViewCart({ navigation }) {
             justifyContent: "center",
             flexDirection: "row",
             position: "absolute",
-            bottom: 130,
+            bottom: 45,
             zIndex: 999,
           }}>
 
@@ -155,7 +155,7 @@ export default function ViewCart({ navigation }) {
                 marginTop: 20,
                 backgroundColor: "black",
                 flexDirection: "row",
-                justifyContent: "flex-end",
+                justifyContent:"center",
                 padding: 15,
                 borderRadius: 30,
                 width: 300,
@@ -163,7 +163,7 @@ export default function ViewCart({ navigation }) {
               }}
               onPress={() => setModalVisible(true)}
           >
-              <Text style={{ color: "white", fontSize: 20, marginRight: 30 }}>
+              <Text style={{ color: "white", fontSize: 20, marginRight: 0 }}>
                 View Cart
               </Text>
               <Text style={{ color: "white", fontSize: 20 }}>{totalUSD}</Text>

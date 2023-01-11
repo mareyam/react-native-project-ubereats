@@ -32,17 +32,18 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 //   },
 // ];
 
-export default function RestaurantItems({ navigation, restaurantData, ...props }) {
+export default function RestaurantItems({ navigation, restaurantData, ...props }) //pass all props w properties 
+{ 
   const [restaurantsData, setRestaurantsData] = useState(restaurantData)
   return (
     <>
-      <FlatList data={restaurantData}
+      <FlatList data={restaurantData} //data fetched from Home, setRestaurnatData(json.business)
         keyExtractor={key => {key.id}}
         renderItem={({ item, index }) => {
           return (
             <TouchableOpacity key={restaurantData.id} activeOpacity={1} style={{ marginBotton: 30 }}
               onPress={() => navigation.navigate("RestaurantDetail",
-                {
+                { //destructing the details from YELP
                   name: item.name,
                   image: item.image_url,
                   price: item.price,

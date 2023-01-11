@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, Image, ScrollView } from "react-native";
+import { FlatList } from "react-native-gesture-handler";
 
 const items = [
   {
@@ -57,6 +58,27 @@ export default function Categories() {
           </View>
         ))}
       </ScrollView>
+{/* <ScrollView>
+    <FlatList data={items}
+      keyExtractor={key => {key.id}}
+      renderItem={(categories,index) => {
+        return (
+          <View>
+              <View key={categories.id} style={{ alignItems: "center", marginRight: 30 }}>
+            <Image
+              source={categories.image}
+              style={{
+                width: 50,
+                height: 40,
+                resizeMode: "contain",
+              }}
+            />
+            <Text style={{ fontSize: 13, fontWeight: "900" }}>{categories.text}</Text>
+          </View>
+          </View>
+        )
+      }}/>
+</ScrollView> */}
     </View>
   );
 }

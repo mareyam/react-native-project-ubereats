@@ -25,11 +25,13 @@ export default function HeaderTabs(props) {
 const HeaderButton = (props) => (
   <TouchableOpacity
     style={{
+      //black based on which tab clicked
       backgroundColor: props.activeTab === props.text ? "black" : "white",
       paddingVertical: 6,
       paddingHorizontal: 16,
       borderRadius: 30,
-    }}
+    }} 
+    //changing text based on the button being clicked
     onPress={() => props.setActiveTab(props.text)}
   >
     <Text

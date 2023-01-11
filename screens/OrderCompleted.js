@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, SafeAreaView, ScrollView } from "react-native";
+import { View, Text, SafeAreaView, Image, ScrollView, Button } from "react-native";
 import { useSelector } from "react-redux";
 import LottieView from "lottie-react-native";
 import firebase from "../firebase";
 import MenuItems from "../components/restaurantDetail/MenuItems";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default function OrderCompleted() {
   const [lastOrder, setLastOrder] = useState({
@@ -72,12 +73,34 @@ export default function OrderCompleted() {
             hideCheckbox={true}
             marginLeft={10}
           />
+         
+         <Image
+            source={require('../assets/cooking-pot.png')}
+            style={{ width: 200, height: 200, marginLeft: 50 }}
+          />
           {/* <LottieView
             style={{ height: 200, alignSelf: "center" }}
-            source={require("../assets/animations/cooking.json")}
+            // source={require("../assets/animations/cooking-pot.json")}
+            source={require("../assets/cooking-pot.json")}
             autoPlay
             speed={0.5}
           /> */}
+         <TouchableOpacity
+            onPress={() => navigation.navigate("Home")}
+              style={{
+                marginTop: 20,
+                backgroundColor: "black",
+                flexDirection: "row",
+                padding: 15,
+                borderRadius: 30,
+                justifyContent:"center",
+                width: 300,
+                position: "relative",
+              }}>
+              <Text style={{ color: "white", fontSize: 20}}>
+                Home
+              </Text>
+            </TouchableOpacity>
         </ScrollView>
       </View>
     </SafeAreaView>
